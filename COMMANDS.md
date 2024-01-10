@@ -29,4 +29,6 @@ kubectl describe deployment node-server
 kubectl apply -f .k8s/service.yaml
 kubectl get svc
 kubectl port-forward svc/node-server-service 8000:3333
+kubectl port-forward svc/node-server-service 9000:80
+kubectl proxy --port=8080
 ```
