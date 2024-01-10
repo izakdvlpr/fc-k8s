@@ -1,5 +1,6 @@
 # Commands
 
+```
 kubectl get po
 kubectl get deployments
 kubectl cluster-info --context kind-fullcycle
@@ -10,3 +11,4 @@ kubectl apply -f .k8s/pod.yaml
 kubectl get nodes
 kubectl port-forward pod/node-server 8000:3333
 kubectl delete pod node-server
+```
