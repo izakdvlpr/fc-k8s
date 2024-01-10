@@ -16,10 +16,12 @@ spec:
     spec:
       containers:
       - name: node-server
-        image: izakdvlpr/node-express-api:v8
+        image: izakdvlpr/node-express-api:v9
         envFrom:
         - configMapRef:
             name: node-server-env
+        - secretRef:
+            name: node-server-secret
         volumeMounts:
         - mountPath: "/usr/src/app/myfamily"
           name: config

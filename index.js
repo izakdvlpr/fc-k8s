@@ -1,5 +1,5 @@
 const express = require('express')
-const {readFile} = require('node:fs/promises')
+const { readFile } = require('node:fs/promises')
 
 const app = express()
 
@@ -15,6 +15,10 @@ app.get('/configmap', async (_request, response) => {
   }
   
   return response.send(`<h1>My Family: ${family.toString()}.</h1>`)
+})
+
+app.get('/secret', (_request, response) => {
+  return response.send(`<h1>User: ${process.env.USER}. Password: ${process.env.PASSWORD}.</h1>`)
 })
 
 app.listen(8000, () => console.log('nodejs started'));
