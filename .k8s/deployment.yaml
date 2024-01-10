@@ -16,18 +16,18 @@ spec:
     spec:
       containers:
       - name: node-server
-        image: izakdvlpr/node-express-api:v5
+        image: izakdvlpr/node-express-api:v8
         envFrom:
         - configMapRef:
             name: node-server-env
-        # env:
-        # - name: NAME
-        #   valueFrom:
-        #     configMapKeyRef:
-        #       name: node-server-env
-        #       key: NAME
-        # - name: AGE
-        #   valueFrom:
-        #     configMapKeyRef:
-        #       name: node-server-env
-        #       key: AGE
+        volumeMounts:
+        - mountPath: "/usr/src/app/myfamily"
+          name: config
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: node-server-family
+          items:
+          - key: members
+            path: "family.txt"

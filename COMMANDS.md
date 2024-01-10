@@ -32,4 +32,6 @@ kubectl port-forward svc/node-server-service 8000:3333
 kubectl port-forward svc/node-server-service 9000:80
 kubectl proxy --port=8080
 kubectl apply -f .k8s/configmap-env.yaml
+kubectl exec -it node-server-7d9b795947-kj96w -- bash
+kubectl logs node-server-7d9b795947-kj96w
 ```
