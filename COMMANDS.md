@@ -35,4 +35,7 @@ kubectl apply -f .k8s/configmap-env.yaml
 kubectl apply -f .k8s/configmap-family.yaml
 kubectl exec -it node-server-7d9b795947-kj96w -- bash
 kubectl logs node-server-7d9b795947-kj96w
+kubectl apply -f .k8s/secret.yaml
+kubectl apply -f .k8s/deployment.yaml && watch -n1 kubectl get po
+kubectl describe pod node-server-d477cc547-7p8db
 ```

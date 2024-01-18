@@ -16,7 +16,15 @@ spec:
     spec:
       containers:
       - name: node-server
-        image: izakdvlpr/node-express-api:v9
+        image: izakdvlpr/node-express-api:v9.2
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8000
+          periodSeconds: 5
+          failureThreshold: 3
+          timeoutSeconds: 1
+          successThreshold: 1
         envFrom:
         - configMapRef:
             name: node-server-env
