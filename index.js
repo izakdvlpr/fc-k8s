@@ -13,7 +13,8 @@ app.get('/healthz', (_request, response) => {
   const duration = new Date() - startedAt
   const durationSeconds = parseInt(duration / 1000)
   
-  if (durationSeconds > 25) {
+  // if (durationSeconds > 25) {
+  if (durationSeconds < 10) {
     return response.status(500).json({ durationSeconds })
   }
   
