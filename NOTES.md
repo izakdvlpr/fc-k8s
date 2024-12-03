@@ -1,3 +1,1 @@
-# notes
-
 Deployment -> ReplicaSet -> Pod

@@ -16,42 +16,49 @@ spec:
     spec:
       containers:
       - name: node-server
-        image: izakdvlpr/node-express-api:v9.3
-        startupProbe:
-          httpGet:
-            path: /healthz
-            port: 8000
-          periodSeconds: 3
-          failureThreshold: 30
-        readinessProbe:
-          httpGet:
-            path: /healthz
-            port: 8000
-          periodSeconds: 3
-          failureThreshold: 1
+        image: izakdvlpr/node-express-api:latest
+        resources:
+          requests:
+            cpu: "0.05"
+            memory: "20Mi"
+          limits:
+            cpu: "0.05"
+            memory: "25Mi"
+        # startupProbe:
+        #   httpGet:
+        #     path: /healthz
+        #     port: 8000
+        #   periodSeconds: 3
+        #   failureThreshold: 30
+        # readinessProbe:
+        #   httpGet:
+        #     path: /healthz
+        #     port: 8000
+        #   periodSeconds: 3
+        #   failureThreshold: 1
           # initialDelaySeconds: 10
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 8000
-          periodSeconds: 5
-          failureThreshold: 1
-          timeoutSeconds: 1
-          successThreshold: 1
+        # livenessProbe:
+        #   httpGet:
+        #     path: /healthz
+        #     port: 8000
+        #   periodSeconds: 5
+        #   failureThreshold: 1
+        #   timeoutSeconds: 1
+        #   successThreshold: 1
           # initialDelaySeconds: 15
-        envFrom:
-        - configMapRef:
-            name: node-server-env
-        - secretRef:
-            name: node-server-secret
-        volumeMounts:
-        - mountPath: "/usr/src/app/myfamily"
-          name: config
-          readOnly: true
-      volumes:
-      - name: config
-        configMap:
-          name: node-server-family
-          items:
-          - key: members
-            path: "family.txt"
+        # envFrom:
+        # - configMapRef:
+        #     name: node-server-env
+        # - secretRef:
+        #     name: node-server-secret
+        # volumeMounts:
+        # - mountPath: "/usr/src/app/myfamily"
+        #   name: config
+        #   readOnly: true
+      # volumes:
+      # - name: config
+      #   configMap:
+      #     name: node-server-family
+      #     items:
+      #     - key: members
+      #       path: "family.txt"

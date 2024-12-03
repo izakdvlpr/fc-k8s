@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
       - name: node-server
-        image: izakdvlpr/node-express-api:v2
+        image: izakdvlpr/node-express-api:latest

@@ -6,6 +6,10 @@ const app = express()
 const startedAt = new Date()
 
 app.get('/', (_request, response) => {
+  return response.json({ message: 'Hello, World!' })
+})
+
+app.get('/hello', (_request, response) => {
   return response.send(`<h1>Hello, I'm ${process.env.NAME}. I'm ${process.env.AGE}</h1>`)
 })
 
